@@ -1,3 +1,3 @@
 # tonyblog.github.io
-贝的个人（伪）技术博客
+陈托尼的<a target="_blank" href="https://tonychenhey.github.io/">个人博客</a>
 今天开始来搞这个吧
