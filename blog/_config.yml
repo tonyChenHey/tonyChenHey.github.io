@@ -9,7 +9,7 @@ description: 美食前端博主技术评测
 keywords:
 author: 托尼
 language: zh-Hans
-timezone:
+timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
