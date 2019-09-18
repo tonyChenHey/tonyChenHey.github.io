@@ -80,5 +80,5 @@ theme: landscape
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: git@github.com:tonyChenHey/tonyblog.github.io.git/tonyblog.github.io/
+  repository: git@github.com:tonyChenHey/tonyChenHey.github.io.git
   branch: master
