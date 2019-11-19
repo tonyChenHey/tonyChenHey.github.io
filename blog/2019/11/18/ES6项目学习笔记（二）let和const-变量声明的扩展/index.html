@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>ES6项目学习笔记（二）let和const 变量声明的扩展 | 托尼陈的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="let，const和var一样，是对变量的一种声明方式，都可以用来声明变量。先说说let，用来声明仅可在块状作用域中使用的变量。直接上代码说：所以，不在块状作用域用，let就没什么意义。另外,同一作用域内,不能用let反复声明同一个变量,会报错的用const用来声明创建一个常量,除了同一作用域下不能反复声明,还不能重新赋值,这里的值指的是变量引用的内存地址,在引用内容是对象的情况下，可以改变对象里">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6项目学习笔记（二）let和const 变量声明的扩展">
+<meta property="og:url" content="https://tonychenhey.github.io/blog/2019/11/18/ES6项目学习笔记（二）let和const-变量声明的扩展/index.html">
+<meta property="og:site_name" content="托尼陈的博客">
+<meta property="og:description" content="let，const和var一样，是对变量的一种声明方式，都可以用来声明变量。先说说let，用来声明仅可在块状作用域中使用的变量。直接上代码说：所以，不在块状作用域用，let就没什么意义。另外,同一作用域内,不能用let反复声明同一个变量,会报错的用const用来声明创建一个常量,除了同一作用域下不能反复声明,还不能重新赋值,这里的值指的是变量引用的内存地址,在引用内容是对象的情况下，可以改变对象里">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5106777-749435c595b5b095.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5106777-4a36eaaba24ca8ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5106777-bf8bb8d7ba540abb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-11-18T08:15:48.461Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6项目学习笔记（二）let和const 变量声明的扩展">
+<meta name="twitter:description" content="let，const和var一样，是对变量的一种声明方式，都可以用来声明变量。先说说let，用来声明仅可在块状作用域中使用的变量。直接上代码说：所以，不在块状作用域用，let就没什么意义。另外,同一作用域内,不能用let反复声明同一个变量,会报错的用const用来声明创建一个常量,除了同一作用域下不能反复声明,还不能重新赋值,这里的值指的是变量引用的内存地址,在引用内容是对象的情况下，可以改变对象里">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/5106777-749435c595b5b095.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="托尼陈的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">托尼陈的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://tonychenhey.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ES6项目学习笔记（二）let和const-变量声明的扩展" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/11/18/ES6项目学习笔记（二）let和const-变量声明的扩展/" class="article-date">
+  <time datetime="2019-11-18T08:13:46.000Z" itemprop="datePublished">2019-11-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ES6项目学习笔记（二）let和const 变量声明的扩展
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>let，const和var一样，是对变量的一种声明方式，都可以用来声明变量。<br>先说说let，用来<strong>声明仅可在块状作用域中使用的变量</strong>。直接上代码说：<br><img src="https://upload-images.jianshu.io/upload_images/5106777-749435c595b5b095.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="var声明的变量不受块状作用域限制"><br>所以，不在块状作用域用，let就没什么意义。<br>另外,同一作用域内,不能用let反复声明同一个变量,会报错的<br><img src="https://upload-images.jianshu.io/upload_images/5106777-4a36eaaba24ca8ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt><br>用<em>const</em>用来声明创建一个常量,除了同一作用域下不能反复声明,还不能重新赋值,这里的值指的是变量引用的内存地址,在引用内容是对象的情况下，可以改变对象里面的内容,看代码就清楚了:<br><img src="https://upload-images.jianshu.io/upload_images/5106777-bf8bb8d7ba540abb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt><br>以上，有其它的再讨论补充。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tonychenhey.github.io/blog/2019/11/18/ES6项目学习笔记（二）let和const-变量声明的扩展/" data-id="ck34bmw8a0001ycrwrdptg6jy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2019/11/18/ES项目学习笔记（三）赋值操作更简便-解构赋值/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ES项目学习笔记（三）赋值操作更简便 解构赋值
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2019/11/18/ES6项目学习笔记（一）作用域-定义的补充完善/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ES6项目学习笔记（一）作用域 定义的补充完善</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/09/">九月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2019/11/18/ES项目学习笔记（三）赋值操作更简便-解构赋值/">ES项目学习笔记（三）赋值操作更简便 解构赋值</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/11/18/ES6项目学习笔记（二）let和const-变量声明的扩展/">ES6项目学习笔记（二）let和const 变量声明的扩展</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/11/18/ES6项目学习笔记（一）作用域-定义的补充完善/">ES6项目学习笔记（一）作用域 定义的补充完善</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/09/19/建立hexo个人博客过程记录/">建立hexo个人博客过程记录</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Tony Chen<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
